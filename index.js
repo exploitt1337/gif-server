@@ -20,7 +20,7 @@ app.get('/exploit.gif', (req, res) => {
   });
 
   gifStream.on('error', (err) => {
-    res.status(500).send('Error reading the GIF file.');
+    res.status(500).send('Error reading the GIF file.', err);
   });
 });
 
