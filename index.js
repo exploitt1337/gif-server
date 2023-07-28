@@ -3,7 +3,12 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 1337;
+
+app.get('/', (req, res) => {
+  console.log("Hosted Successfully: true")
+  res.status(200).send("Made by Exploit")
+});
 
 app.get('/exploit.gif', (req, res) => {
   const gifPath = path.join(__dirname, 'idk.gif');
