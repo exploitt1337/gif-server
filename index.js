@@ -3,7 +3,12 @@ const fs = require('fs');
 // const path = require('path');
 
 const app = express();
-const PORT = 1337;
+const PORT = process.env.PORT || 1337;
+
+app.get('/', (req, res) => {
+  console.log("Hosted Successfully: true")
+  res.status(200).send("Made by Exploit")
+});
 
 app.get('/exploit.gif', (req, res) => {
   const gifPath = ('idk.gif');
@@ -19,6 +24,6 @@ app.get('/exploit.gif', (req, res) => {
   });
 });
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on http://0.0.0.0:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
